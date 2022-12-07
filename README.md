@@ -23,3 +23,8 @@ In roughly descending order of importance:
 - [ ] Release Composer package; advertise on HN and elsewhere; get added to Djot's list of implementations if it exists yet
 - [ ] Implement custom blocks/inlines API
 - [ ] World peace
+
+## Development
+
+- Code must confirm to the [PSR-12 coding standard](https://www.php-fig.org/psr/psr-12/).
+- Strict types (`declare(strict_types=1);`) is always to be used.
