@@ -1,0 +1,18 @@
+{
+    "name": "peace-media/phpdjot",
+    "description": "PHP implementation of the Djot markup language.",
+    "type": "library",
+    "license": "BSD 2-clause",
+    "autoload": {
+        "psr-4": {
+            "PeaceMedia\\PHPDjot\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Garrett Albright",
+            "email": "contact@peacemedia.biz"
+        }
+    ],
+    "require": {}
+}
