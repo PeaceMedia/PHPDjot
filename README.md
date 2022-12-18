@@ -17,7 +17,7 @@ In roughly descending order of importance:
 
 ## Tasks
 
-- [ ] Set up tests which parse the test files from the reference implementation's tests directory
+- [x] Set up tests which parse the test files from the reference implementation's tests directory
 - [ ] Build initial mock Djot-to-AST and AST-to-HTML classes far enough that tests run and fail
 - [ ] Replace mocks with actual code and get those tests passin'
 - [ ] Release Composer package; advertise on HN and elsewhere; get added to Djot's list of implementations if it exists yet
@@ -28,3 +28,4 @@ In roughly descending order of importance:
 
 - Code must confirm to the [PSR-12 coding standard](https://www.php-fig.org/psr/psr-12/).
 - Strict types (`declare(strict_types=1);`) is always to be used.
+- Run tests by running the phpdjot-test "binary" in the bin subdirectory with the path to the Djot reference implementation's test directory (where the *.test files are) as a parameter.

@@ -1,0 +1,61 @@
+#!/usr/bin/env php
+<?php
+
+/**
+ * Tests PHPDjot.
+ */
+
+declare(strict_types=1);
+
+include $_composer_autoload_path ?? __DIR__ . '/../vendor/autoload.php';
+
+use PeaceMedia\PHPDjot\Testing\TestRunner;
+use PeaceMedia\PHPDjot\Testing\TestFileUnreadableException;
+
+if (!isset($argv[1])) {
+    wecho('Give path to "test" directory in Djot reference implementation as first script argument.');
+    exit(1);
+}
+
+try {
+    $tr = new TestRunner($argv[1]);
+} catch (\TestFileUnreadableException $e) {
+    wecho('Error reading test file(s): ' . $e->getMessage());
+    exit(1);
+}
+
+$totalPasses = 0;
+$totalFails = 0;
+$totalTests = 0;
+foreach ($tr->runTests() as $filename => $tests) {
+    $filePasses = 0;
+    $fileFails = 0;
+    $fileTests = 0;
+    wecho("Test file {$filename}");
+    foreach ($tests as $testCase) {
+        $fileTests++;
+        $msg = '-- Line ' . $testCase->getLineNumber() . ': ';
+        if ($testCase->testPassed()) {
+            $filePasses++;
+            wecho($msg . 'pass');
+        } else {
+            $fileFails++;
+            wecho($msg . 'FAIL');
+        }
+    }
+    wecho("{$fileTests} tests; {$filePasses} passes; {$fileFails} fails");
+    echo PHP_EOL;
+    $totalTests += $fileTests;
+    $totalFails += $fileFails;
+    $totalPasses += $filePasses;
+}
+
+wecho("All tests complete.");
+wecho("{$totalTests} total tests; {$totalPasses} total passes; {$totalFails} total fails");
+
+exit($totalFails ? 2 : 0);
+
+function wecho(string $message)
+{
+    echo wordwrap($message, 40, PHP_EOL) . PHP_EOL;
+}
