@@ -1,5 +1,7 @@
 # PHPDjot
 
+*This project is abandoned. My original plan of porting the Lua code won't work as Lua is just too different from modern PHP. I looked at the TypeScript port instead, but that too has lots of ad-hoc class-like "Types" and other things that do not translate well to modern PHP. If I were a smarter person, I could just write the parser from the ground up in modern PHP, but I have never written a parser of this complexity before, so without some similarly-structured code to crib from, I'm at the limits of my knowledge and this project has become not fun. The test parsing and running part still works, though, so feel free to use that as a starting point if you want to take up the mantle of writing a Djot interpreter in PHP.*
+
 PHPDjot is a PHP parser for the [Djot](https://djot.net) markup language. Djot is a markup language inspired by Markdown/CommonMark, but intended to both be simpler to parse and avoid ambiguities and difficult edge cases.
 
 (That's the goal, anyway. This is a very early project and there is no actual functional code yet.)
